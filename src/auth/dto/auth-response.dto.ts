@@ -1,8 +1,10 @@
-// src/auth/dto/auth-response.dto.ts
-import { User } from '../../user/entities/user.entity';
+import { UserRole } from '../../user/entities/user.entity';
 
-// This strips out the password when sending responses
-export type AuthResponseDto = {
-  user: Omit<User, 'password'>;
+export class AuthResponseDto {
   token: string;
-};
+  user: {
+    id: string;
+    email: string;
+    role: UserRole;
+  };
+}
